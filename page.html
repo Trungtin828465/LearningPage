@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8fafc" />
+  <title>Nguyễn Trung Tín | Fresher Software Engineer</title>
+  <meta name="description" content="Portfolio cá nhân của Nguyễn Trung Tín, tốt nghiệp Công nghệ Thông tin loại Giỏi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+  <style>
+    /* ===== CSS reset & variables ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #f1f5f9;
+      --bg-secondary: #ffffff;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-light: #94a3b8;
+      --radius: 24px;
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 40px rgba(37, 99, 235, 0.08);
+      --shadow-lg: 0 20px 60px rgba(37, 99, 235, 0.12);
+      --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 12px; }
+
+    /* ===== animated background ===== */
+    .bg-animated {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-orbs {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.15;
+      animation: floatOrb 20s infinite alternate ease-in-out;
+    }
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #3b82f6, #60a5fa);
+      top: -10%;
+      left: -5%;
+      animation-duration: 22s;
+    }
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #818cf8, #6366f1);
+      bottom: -10%;
+      right: -5%;
+      animation-duration: 18s;
+      animation-delay: -6s;
+    }
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #38bdf8, #0ea5e9);
+      top: 40%;
+      left: 50%;
+      animation-duration: 25s;
+      animation-delay: -12s;
+    }
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, -40px) scale(1.1); }
+      66% { transform: translate(-30px, 50px) scale(0.9); }
+      100% { transform: translate(40px, -20px) scale(1.05); }
+    }
+
+    /* floating particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: particleFloat linear infinite;
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.2; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ===== grid overlay light ===== */
+    .bg-grid-light {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    /* ===== layout ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== navbar ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 0;
+      transition: all var(--transition);
+      background: rgba(241, 245, 249, 0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(37, 99, 235, 0.06);
+    }
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-logo span {
+      -webkit-text-fill-color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: var(--primary);
+      border-radius: 4px;
+      animation: underlineIn 0.4s ease;
+    }
+    @keyframes underlineIn {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .nav-cta {
+      background: var(--primary);
+      color: white !important;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.3);
+      color: white !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 60;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--text);
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 740px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 80px 32px 32px;
+        gap: 28px;
+        transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        border-left: 1px solid rgba(37, 99, 235, 0.06);
+        box-shadow: -12px 0 60px rgba(0, 0, 0, 0.06);
+        align-items: flex-start;
+      }
+      .nav-links.open {
+        right: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+      .nav-cta {
+        margin-top: 8px;
+      }
+    }
+
+    /* ===== profile panel ===== */
+    .profile-panel {
+      margin: 48px 0 32px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      padding: 36px 42px;
+      border: 1px solid rgba(37, 99, 235, 0.06);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      transition: all var(--transition);
+    }
+    .profile-panel:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .profile-left h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, var(--text), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .profile-left .badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 20px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.05));
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 40px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .profile-left .badge:hover {
+      background: rgba(37, 99, 235, 0.1);
+      transform: scale(1.02);
+    }
+    .profile-right {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 10px 48px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .profile-right .label {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .profile-right .value {
+      color: var(--text);
+      font-weight: 600;
+    }
+    @media (max-width: 680px) {
+      .profile-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 28px;
+      }
+      .profile-right {
+        grid-template-columns: 1fr;
+        gap: 6px 0;
+        width: 100%;
+      }
+      .profile-right .label {
+        width: 100px;
+        display: inline-block;
+      }
+      .profile-left h1 { font-size: 1.8rem; }
+    }
+
+    /* ===== section heading ===== */
+    .section-head {
+      margin: 56px 0 28px;
+    }
+    .section-head h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-head h2::after {
+      content: '';
+      flex: 1;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light), transparent);
+      max-width: 140px;
+      border-radius: 4px;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-size: 1.05rem;
+    }
+
+    /* ===== project grid ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 1000px) {
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .project-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ===== project card ===== */
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      border: 1px solid rgba(37, 99, 235, 0.05);
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+    }
+    .project-card.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.01);
+      border-color: rgba(37, 99, 235, 0.15);
+      box-shadow: var(--shadow-lg);
+    }
+    .project-card:hover .card-image img {
+      transform: scale(1.08);
+    }
+    .project-card:hover .card-image .overlay {
+      opacity: 0.4;
+    }
+    .card-image {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(145deg, #e2e8f0, #f1f5f9);
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .card-image .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .card-image .placeholder-svg {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #dbeafe, #eff6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      opacity: 0.6;
+    }
+    .card-body {
+      padding: 22px 26px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.06);
+      border-radius: 40px;
+      padding: 3px 14px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 10px;
+      font-weight: 700;
+      border: 1px solid rgba(37, 99, 235, 0.06);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .card-role {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-bottom: 20px;
+    }
+    .card-tech span {
+      background: rgba(37, 99, 235, 0.04);
+      border: 1px solid rgba(37, 99, 235, 0.06);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 3px 14px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .card-tech span:hover {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(37, 99, 235, 0.08);
+    }
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);
+    }
+    .btn-outline {
+      border-color: rgba(37, 99, 235, 0.12);
+      color: var(--text-muted);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.06);
+    }
+    .btn .arrow {
+      transition: transform 0.4s;
+    }
+    .btn:hover .arrow {
+      transform: translateX(6px) scale(1.1);
+    }
+    .btn:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* ===== footer ===== */
+    .footer {
+      border-top: 1px solid rgba(37, 99, 235, 0.06);
+      padding: 32px 0 24px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .footer-left .copyright {
+      font-weight: 500;
+      color: var(--text);
+    }
+    .footer-left .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      font-size: 0.85rem;
+    }
+    .footer-left .contact-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+    .footer-left .contact-info i {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+    }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-social a {
+      color: var(--text-muted);
+      transition: all 0.3s;
+      display: inline-flex;
+      padding: 8px;
+      border-radius: 50%;
+    }
+    .footer-social a:hover {
+      color: var(--primary);
+      transform: translateY(-3px) scale(1.1);
+      background: rgba(37, 99, 235, 0.06);
+    }
+
+    @media (max-width: 680px) {
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .footer-left .contact-info {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .footer-social {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    /* ===== scroll reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== cursor glow (desktop) ===== */
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.04), transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: left 0.1s ease-out, top 0.1s ease-out;
+      will-change: left, top;
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .cursor-glow { display: block; }
+    }
+
+    /* ===== utilities ===== */
+    .text-center { text-align: center; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- animated background -->
+  <div class="bg-animated" aria-hidden="true">
+    <div class="bg-orbs orb-1"></div>
+    <div class="bg-orbs orb-2"></div>
+    <div class="bg-orbs orb-3"></div>
+  </div>
+  <div class="bg-grid-light" aria-hidden="true"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- cursor glow -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ====== navbar ====== -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container">
+      <div class="nav-logo">Nguyễn Trung <span>Tín</span></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks" role="menubar">
+          <li role="none"><a href="#home" role="menuitem" class="active">Trang chủ</a></li>
+          <li role="none"><a href="#projects" role="menuitem">Dự án</a></li>
+          <li role="none"><a href="https://github.com/trungtin-dev" target="_blank" rel="noopener noreferrer" role="menuitem">GitHub</a></li>
+          <li role="none"><a href="#contact" role="menuitem" class="nav-cta">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="container">
+      <!-- ====== profile panel ====== -->
+      <section id="home" aria-labelledby="profile-heading">
+        <div class="profile-panel reveal">
+          <div class="profile-left">
+            <h1 id="profile-heading">Nguyễn Trung Tín</h1>
+            <div class="badge">🚀 Fresher Software Engineer</div>
+          </div>
+          <div class="profile-right">
+            <span><span class="label">Ngày sinh</span> <span class="value">DD/MM/YYYY</span></span>
+            <span><span class="label">Trường</span> <span class="value">Đại học GTVT – TP.HCM</span></span>
+            <span><span class="label">Chuyên ngành</span> <span class="value">Công nghệ Thông tin</span></span>
+            <span><span class="label">Tốt nghiệp</span> <span class="value">🏅 Loại Giỏi</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== projects ====== -->
+      <section id="projects" aria-labelledby="projects-heading">
+        <div class="section-head reveal">
+          <h2 id="projects-heading">✨ Dự án</h2>
+          <p>Một số dự án tôi đã thực hiện — mỗi dự án là một câu chuyện.</p>
+        </div>
+        <div class="project-grid" id="projectsGrid" role="list">
+          <!-- rendered by JS -->
+        </div>
+      </section>
+
+      <!-- ====== contact anchor ====== -->
+      <div id="contact" style="scroll-margin-top: 80px;"></div>
+
+      <!-- ====== footer ====== -->
+      <footer class="footer" role="contentinfo">
+        <div class="footer-left">
+          <div class="copyright">© 2026 Nguyễn Trung Tín — Built with ❤️</div>
+          <div class="contact-info">
+            <span>
+              <i class="lucide-map-pin" style="width:16px;height:16px;"></i>
+              TP. Thủ Đức, TP. Hồ Chí Minh
+            </span>
+            <span>
+              <i class="lucide-mail" style="width:16px;height:16px;"></i>
+              trungtin@example.com
+            </span>
+            <span>
+              <i class="lucide-phone" style="width:16px;height:16px;"></i>
+              +84 123 456 789
+            </span>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/trungtin-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="lucide-github" style="width:20px;height:20px;"></i>
+          </a>
+          <a href="https://linkedin.com/in/trungtin-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="lucide-linkedin" style="width:20px;height:20px;"></i>
+          </a>
+          <a href="mailto:trungtin@example.com" aria-label="Email">
+            <i class="lucide-mail" style="width:20px;height:20px;"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ===== particles =====
+      (function initParticles() {
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 35; i++) {
+          const p = document.createElement('div');
+          p.className = 'particle';
+          p.style.left = Math.random() * 100 + '%';
+          p.style.width = (2 + Math.random() * 4) + 'px';
+          p.style.height = p.style.width;
+          p.style.animationDuration = (12 + Math.random() * 20) + 's';
+          p.style.animationDelay = (Math.random() * 20) + 's';
+          p.style.opacity = 0.05 + Math.random() * 0.1;
+          container.appendChild(p);
+        }
+      })();
+
+      // ===== project data =====
+      const projects = [
+        {
+          id: 1,
+          category: "Dự án thực tập",
+          title: "Hệ sinh thái du lịch DUDI",
+          role: "Software Developer Intern",
+          description: "Tham gia phát triển hệ sinh thái du lịch DUDI trong thời gian thực tập tại công ty.",
+          technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "REST API", "Tailwind CSS"],
+          image: "assets/projects/dudi.png",
+          liveUrl: "",
+          githubUrl: "https://github.com/trungtin-dev/dudi"
+        },
+        {
+          id: 2,
+          category: "Dự án cá nhân",
+          title: "Ứng dụng hỗ trợ người khiếm thị",
+          role: "Developer / Đồ án tốt nghiệp",
+          description: "Ứng dụng hỗ trợ người khiếm thị nhận diện vật thể và hướng dẫn di chuyển trong nhà.",
+          technologies: ["Android", "YOLO", "CameraX", "TensorFlow Lite", "Google Speech"],
+          image: "assets/projects/visually-impaired.png",
+          liveUrl: "",
+          githubUrl: "https://github.com/trungtin-dev/visually-impaired"
+        },
+        {
+          id: 3,
+          category: "Dự án cá nhân",
+          title: "Website quản lý sức khỏe + Chatbot",
+          role: "Backend / AI Developer",
+          description: "Website quản lý sức khỏe tích hợp Chatbot tư vấn bằng NLP và Semantic Search.",
+          technologies: ["FastAPI", "PostgreSQL", "Python", "SBERT", "NLP", "Semantic Search"],
+          image: "assets/projects/healthcare.png",
+          liveUrl: "",
+          githubUrl: "https://github.com/trungtin-dev/healthcare"
+        },
+        {
+          id: 4,
+          category: "Dự án cá nhân",
+          title: "Website học tiếng Anh",
+          role: "Full-stack Developer",
+          description: "Website hỗ trợ học tiếng Anh với đánh giá TOEIC và học từ vựng.",
+          technologies: ["ReactJS", "C#", ".NET", "PostgreSQL"],
+          image: "assets/projects/english-learning.png",
+          liveUrl: "",
+          githubUrl: "https://github.com/trungtin-dev/english-learning"
+        },
+        {
+          id: 5,
+          category: "Dự án cá nhân",
+          title: "Website cửa hàng đồng hồ",
+          role: "Full-stack Developer",
+          description: "Website thương mại điện tử mô phỏng cửa hàng đồng hồ và quản lý sản phẩm.",
+          technologies: ["ASP.NET Core MVC", "Entity Framework Core", "SQL Server"],
+          image: "assets/projects/watch-store.png",
+          liveUrl: "",
+          githubUrl: "https://github.com/trungtin-dev/watch-store"
+        }
+      ];
+
+      // ===== render projects =====
+      const grid = document.getElementById('projectsGrid');
+      function renderCards() {
+        grid.innerHTML = '';
+        projects.forEach((p, index) => {
+          const card = document.createElement('article');
+          card.className = 'project-card';
+          card.setAttribute('role', 'listitem');
+          card.style.transitionDelay = (index * 100) + 'ms';
+
+          // image
+          const imgContainer = document.createElement('div');
+          imgContainer.className = 'card-image';
+          const overlay = document.createElement('div');
+          overlay.className = 'overlay';
+          imgContainer.appendChild(overlay);
+
+          const img = document.createElement('img');
+          img.src = p.image;
+          img.alt = p.title + ' – ảnh dự án';
+          img.loading = 'lazy';
+          img.onerror = function() {
+            this.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.className = 'placeholder-svg';
+            fallback.textContent = '📁 ' + p.title.slice(0, 18);
+            imgContainer.appendChild(fallback);
+          };
+          imgContainer.appendChild(img);
+          card.appendChild(imgContainer);
+
+          // body
+          const body = document.createElement('div');
+          body.className = 'card-body';
+
+          const cat = document.createElement('div');
+          cat.className = 'card-category';
+          cat.textContent = p.category;
+          body.appendChild(cat);
+
+          const title = document.createElement('h3');
+          title.className = 'card-title';
+          title.textContent = p.title;
+          body.appendChild(title);
+
+          const role = document.createElement('div');
+          role.className = 'card-role';
+          role.textContent = p.role;
+          body.appendChild(role);
+
+          const desc = document.createElement('p');
+          desc.className = 'card-desc';
+          desc.textContent = p.description;
+          body.appendChild(desc);
+
+          const tech = document.createElement('div');
+          tech.className = 'card-tech';
+          p.technologies.forEach(t => {
+            const span = document.createElement('span');
+            span.textContent = t;
+            tech.appendChild(span);
+          });
+          body.appendChild(tech);
+
+          const actions = document.createElement('div');
+          actions.className = 'card-actions';
+
+          if (p.liveUrl && p.liveUrl.trim() !== '') {
+            const liveBtn = document.createElement('a');
+            liveBtn.href = p.liveUrl;
+            liveBtn.target = '_blank';
+            liveBtn.rel = 'noopener noreferrer';
+            liveBtn.className = 'btn btn-primary';
+            liveBtn.innerHTML = 'Xem dự án <i class="lucide-arrow-right arrow" style="width:16px;height:16px;"></i>';
+            actions.appendChild(liveBtn);
+          }
+          if (p.githubUrl && p.githubUrl.trim() !== '') {
+            const ghBtn = document.createElement('a');
+            ghBtn.href = p.githubUrl;
+            ghBtn.target = '_blank';
+            ghBtn.rel = 'noopener noreferrer';
+            ghBtn.className = 'btn btn-outline';
+            ghBtn.innerHTML = '<i class="lucide-github" style="width:16px;height:16px;"></i> GitHub';
+            actions.appendChild(ghBtn);
+          }
+          body.appendChild(actions);
+          card.appendChild(body);
+          grid.appendChild(card);
+        });
+      }
+      renderCards();
+
+      // ===== navbar scroll =====
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // ===== mobile menu =====
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // ===== scroll reveal =====
+      const revealElements = document.querySelectorAll('.reveal');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+      projectCards.forEach(card => observer.observe(card));
+
+      // ===== active nav =====
+      const sections = ['home', 'projects'];
+      const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
+      window.addEventListener('scroll', () => {
+        let current = 'home';
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 120) current = id;
+          }
+        });
+        navAnchors.forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+          }
+        });
+      }, { passive: true });
+
+      // ===== smooth anchor =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // ===== cursor glow =====
+      const cursor = document.getElementById('cursorGlow');
+      if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+      }
+
+      console.log('✨ Portfolio light mode with animations ready');
+    })();
+  </script>
+</body>
+</html>
