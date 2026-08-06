@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f8fafc" />
   <title>Nguyễn Trung Tín | Fresher Software Engineer</title>
-  <meta name="description" content="Portfolio cá nhân của Nguyễn Trung Tín, tốt nghiệp Công nghệ Thông tin loại Giỏi." />
+  <meta name="description"
+    content="Portfolio cá nhân của Nguyễn Trung Tín, tốt nghiệp Công nghệ Thông tin loại Giỏi." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,6 +19,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     :root {
       --bg: #f1f5f9;
       --bg-secondary: #ffffff;
@@ -33,6 +36,7 @@
       --shadow-lg: 0 20px 60px rgba(37, 99, 235, 0.12);
       --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
     body {
       font-family: 'Manrope', sans-serif;
       background: var(--bg);
@@ -41,17 +45,29 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
     img {
       display: block;
       max-width: 100%;
     }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 12px; }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 12px;
+    }
 
     /* ===== animated background ===== */
     .bg-animated {
@@ -61,6 +77,7 @@
       pointer-events: none;
       overflow: hidden;
     }
+
     .bg-orbs {
       position: absolute;
       border-radius: 50%;
@@ -68,6 +85,7 @@
       opacity: 0.15;
       animation: floatOrb 20s infinite alternate ease-in-out;
     }
+
     .orb-1 {
       width: 500px;
       height: 500px;
@@ -76,6 +94,7 @@
       left: -5%;
       animation-duration: 22s;
     }
+
     .orb-2 {
       width: 400px;
       height: 400px;
@@ -85,6 +104,7 @@
       animation-duration: 18s;
       animation-delay: -6s;
     }
+
     .orb-3 {
       width: 300px;
       height: 300px;
@@ -94,11 +114,23 @@
       animation-duration: 25s;
       animation-delay: -12s;
     }
+
     @keyframes floatOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(60px, -40px) scale(1.1); }
-      66% { transform: translate(-30px, 50px) scale(0.9); }
-      100% { transform: translate(40px, -20px) scale(1.05); }
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(60px, -40px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-30px, 50px) scale(0.9);
+      }
+
+      100% {
+        transform: translate(40px, -20px) scale(1.05);
+      }
     }
 
     /* floating particles */
@@ -109,6 +141,7 @@
       pointer-events: none;
       overflow: hidden;
     }
+
     .particle {
       position: absolute;
       width: 4px;
@@ -118,11 +151,25 @@
       opacity: 0.15;
       animation: particleFloat linear infinite;
     }
+
     @keyframes particleFloat {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.2; }
-      90% { opacity: 0.2; }
-      100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.2;
+      }
+
+      90% {
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: translateY(-10vh) rotate(720deg);
+        opacity: 0;
+      }
     }
 
     /* ===== grid overlay light ===== */
@@ -157,17 +204,20 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(37, 99, 235, 0.06);
     }
+
     .navbar.scrolled {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
       border-bottom: 1px solid rgba(37, 99, 235, 0.08);
     }
+
     .navbar .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-logo {
       font-weight: 800;
       font-size: 1.25rem;
@@ -178,15 +228,18 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .nav-logo span {
       -webkit-text-fill-color: var(--text);
     }
+
     .nav-links {
       display: flex;
       align-items: center;
       gap: 36px;
       list-style: none;
     }
+
     .nav-links a {
       font-weight: 600;
       font-size: 0.9rem;
@@ -194,12 +247,15 @@
       transition: all 0.3s;
       position: relative;
     }
+
     .nav-links a:hover {
       color: var(--primary);
     }
+
     .nav-links a.active {
       color: var(--primary);
     }
+
     .nav-links a.active::after {
       content: '';
       position: absolute;
@@ -211,10 +267,17 @@
       border-radius: 4px;
       animation: underlineIn 0.4s ease;
     }
+
     @keyframes underlineIn {
-      from { width: 0; }
-      to { width: 100%; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
     }
+
     .nav-cta {
       background: var(--primary);
       color: white !important;
@@ -225,12 +288,14 @@
       transition: all 0.3s;
       box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
     }
+
     .nav-cta:hover {
       background: var(--primary-dark);
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 8px 28px rgba(37, 99, 235, 0.3);
       color: white !important;
     }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -241,6 +306,7 @@
       padding: 4px;
       z-index: 60;
     }
+
     .hamburger span {
       display: block;
       width: 26px;
@@ -249,9 +315,18 @@
       border-radius: 4px;
       transition: 0.3s;
     }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
     @media (max-width: 740px) {
       .nav-links {
@@ -270,15 +345,19 @@
         box-shadow: -12px 0 60px rgba(0, 0, 0, 0.06);
         align-items: flex-start;
       }
+
       .nav-links.open {
         right: 0;
       }
+
       .hamburger {
         display: flex;
       }
+
       .nav-links a {
         font-size: 1.1rem;
       }
+
       .nav-cta {
         margin-top: 8px;
       }
@@ -298,10 +377,12 @@
       align-items: center;
       transition: all var(--transition);
     }
+
     .profile-panel:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-2px);
     }
+
     .profile-left h1 {
       font-size: 2.4rem;
       font-weight: 800;
@@ -311,6 +392,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .profile-left .badge {
       display: inline-block;
       margin-top: 8px;
@@ -323,10 +405,12 @@
       font-size: 0.9rem;
       transition: all 0.3s;
     }
+
     .profile-left .badge:hover {
       background: rgba(37, 99, 235, 0.1);
       transform: scale(1.02);
     }
+
     .profile-right {
       display: grid;
       grid-template-columns: auto auto;
@@ -335,14 +419,17 @@
       color: var(--text-muted);
       margin-top: 4px;
     }
+
     .profile-right .label {
       color: var(--text-light);
       font-weight: 500;
     }
+
     .profile-right .value {
       color: var(--text);
       font-weight: 600;
     }
+
     @media (max-width: 680px) {
       .profile-panel {
         flex-direction: column;
@@ -350,22 +437,28 @@
         gap: 20px;
         padding: 28px;
       }
+
       .profile-right {
         grid-template-columns: 1fr;
         gap: 6px 0;
         width: 100%;
       }
+
       .profile-right .label {
         width: 100px;
         display: inline-block;
       }
-      .profile-left h1 { font-size: 1.8rem; }
+
+      .profile-left h1 {
+        font-size: 1.8rem;
+      }
     }
 
     /* ===== section heading ===== */
     .section-head {
       margin: 56px 0 28px;
     }
+
     .section-head h2 {
       font-size: 2.2rem;
       font-weight: 800;
@@ -374,6 +467,7 @@
       align-items: center;
       gap: 16px;
     }
+
     .section-head h2::after {
       content: '';
       flex: 1;
@@ -382,6 +476,7 @@
       max-width: 140px;
       border-radius: 4px;
     }
+
     .section-head p {
       color: var(--text-muted);
       margin-top: 6px;
@@ -395,11 +490,18 @@
       gap: 32px;
       margin-bottom: 48px;
     }
+
     @media (max-width: 1000px) {
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 680px) {
-      .project-grid { grid-template-columns: 1fr; gap: 36px; }
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
     }
 
     /* ===== project card ===== */
@@ -415,33 +517,40 @@
       opacity: 0;
       transform: translateY(40px) scale(0.96);
     }
+
     .project-card.revealed {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+
     .project-card:hover {
       transform: translateY(-12px) scale(1.01);
       border-color: rgba(37, 99, 235, 0.15);
       box-shadow: var(--shadow-lg);
     }
+
     .project-card:hover .card-image img {
       transform: scale(1.08);
     }
+
     .project-card:hover .card-image .overlay {
       opacity: 0.4;
     }
+
     .card-image {
       height: 240px;
       overflow: hidden;
       position: relative;
       background: linear-gradient(145deg, #e2e8f0, #f1f5f9);
     }
+
     .card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
     .card-image .overlay {
       position: absolute;
       inset: 0;
@@ -449,6 +558,7 @@
       opacity: 0;
       transition: opacity 0.5s;
     }
+
     .card-image .placeholder-svg {
       width: 100%;
       height: 100%;
@@ -461,12 +571,14 @@
       font-size: 1.1rem;
       opacity: 0.6;
     }
+
     .card-body {
       padding: 22px 26px 28px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
+
     .card-category {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -481,6 +593,7 @@
       font-weight: 700;
       border: 1px solid rgba(37, 99, 235, 0.06);
     }
+
     .card-title {
       font-size: 1.25rem;
       font-weight: 800;
@@ -488,12 +601,14 @@
       margin-bottom: 4px;
       color: var(--text);
     }
+
     .card-role {
       font-size: 0.8rem;
       color: var(--primary);
       font-weight: 600;
       margin-bottom: 10px;
     }
+
     .card-desc {
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -501,12 +616,14 @@
       margin-bottom: 16px;
       flex: 1;
     }
+
     .card-tech {
       display: flex;
       flex-wrap: wrap;
       gap: 6px 10px;
       margin-bottom: 20px;
     }
+
     .card-tech span {
       background: rgba(37, 99, 235, 0.04);
       border: 1px solid rgba(37, 99, 235, 0.06);
@@ -517,16 +634,19 @@
       font-weight: 600;
       transition: all 0.3s;
     }
+
     .card-tech span:hover {
       background: rgba(37, 99, 235, 0.08);
       color: var(--primary);
       transform: translateY(-1px);
     }
+
     .card-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -542,33 +662,40 @@
       color: var(--text);
       border: 1px solid rgba(37, 99, 235, 0.08);
     }
+
     .btn-primary {
       background: var(--primary);
       border-color: var(--primary);
       color: white;
       box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
     }
+
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);
     }
+
     .btn-outline {
       border-color: rgba(37, 99, 235, 0.12);
       color: var(--text-muted);
     }
+
     .btn-outline:hover {
       border-color: var(--primary);
       color: var(--primary);
       transform: translateY(-3px);
       box-shadow: 0 4px 20px rgba(37, 99, 235, 0.06);
     }
+
     .btn .arrow {
       transition: transform 0.4s;
     }
+
     .btn:hover .arrow {
       transform: translateX(6px) scale(1.1);
     }
+
     .btn:focus-visible {
       outline: 3px solid var(--primary);
       outline-offset: 2px;
@@ -587,37 +714,44 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
+
     .footer-left {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
+
     .footer-left .copyright {
       font-weight: 500;
       color: var(--text);
     }
+
     .footer-left .contact-info {
       display: flex;
       flex-wrap: wrap;
       gap: 8px 24px;
       font-size: 0.85rem;
     }
+
     .footer-left .contact-info span {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       color: var(--text-muted);
     }
+
     .footer-left .contact-info i {
       width: 16px;
       height: 16px;
       color: var(--primary);
     }
+
     .footer-social {
       display: flex;
       gap: 20px;
       align-items: center;
     }
+
     .footer-social a {
       color: var(--text-muted);
       transition: all 0.3s;
@@ -625,6 +759,7 @@
       padding: 8px;
       border-radius: 50%;
     }
+
     .footer-social a:hover {
       color: var(--primary);
       transform: translateY(-3px) scale(1.1);
@@ -637,10 +772,12 @@
         align-items: flex-start;
         gap: 16px;
       }
+
       .footer-left .contact-info {
         flex-direction: column;
         gap: 4px;
       }
+
       .footer-social {
         width: 100%;
         justify-content: flex-start;
@@ -653,6 +790,7 @@
       transform: translateY(36px);
       transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
     .reveal.revealed {
       opacity: 1;
       transform: translateY(0);
@@ -672,12 +810,18 @@
       will-change: left, top;
       display: none;
     }
+
     @media (min-width: 1024px) {
-      .cursor-glow { display: block; }
+      .cursor-glow {
+        display: block;
+      }
     }
 
     /* ===== utilities ===== */
-    .text-center { text-align: center; }
+    .text-center {
+      text-align: center;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -685,11 +829,12 @@
       padding: 0;
       margin: -1px;
       overflow: hidden;
-      clip: rect(0,0,0,0);
+      clip: rect(0, 0, 0, 0);
       border: 0;
     }
   </style>
 </head>
+
 <body>
   <!-- animated background -->
   <div class="bg-animated" aria-hidden="true">
@@ -714,7 +859,8 @@
         <ul class="nav-links" id="navLinks" role="menubar">
           <li role="none"><a href="#home" role="menuitem" class="active">Trang chủ</a></li>
           <li role="none"><a href="#projects" role="menuitem">Dự án</a></li>
-          <li role="none"><a href="https://github.com/trungtin-dev" target="_blank" rel="noopener noreferrer" role="menuitem">GitHub</a></li>
+          <li role="none"><a href="https://github.com/trungtin0972" target="_blank" rel="noopener noreferrer"
+              role="menuitem">GitHub</a></li>
           <li role="none"><a href="#contact" role="menuitem" class="nav-cta">Liên hệ</a></li>
         </ul>
       </nav>
@@ -731,10 +877,10 @@
             <div class="badge">🚀 Fresher Software Engineer</div>
           </div>
           <div class="profile-right">
-            <span><span class="label">Ngày sinh</span> <span class="value">DD/MM/YYYY</span></span>
-            <span><span class="label">Trường</span> <span class="value">Đại học GTVT – TP.HCM</span></span>
+            <span><span class="label">Ngày sinh</span> <span class="value">06/06/2004</span></span>
+            <span><span class="label">Trường</span> <span class="value">Đại học GTVT</span></span>
             <span><span class="label">Chuyên ngành</span> <span class="value">Công nghệ Thông tin</span></span>
-            <span><span class="label">Tốt nghiệp</span> <span class="value">🏅 Loại Giỏi</span></span>
+            <span><span class="label">Tốt nghiệp</span> <span class="value"> Giỏi</span></span>
           </div>
         </div>
       </section>
@@ -756,7 +902,7 @@
       <!-- ====== footer ====== -->
       <footer class="footer" role="contentinfo">
         <div class="footer-left">
-          <div class="copyright">© 2026 Nguyễn Trung Tín — Built with ❤️</div>
+          <div class="copyright">© 2026 Nguyễn Trung Tín — Built with </div>
           <div class="contact-info">
             <span>
               <i class="lucide-map-pin" style="width:16px;height:16px;"></i>
@@ -764,7 +910,7 @@
             </span>
             <span>
               <i class="lucide-mail" style="width:16px;height:16px;"></i>
-              trungtin@example.com
+              trungtin0972@gmail.com
             </span>
             <span>
               <i class="lucide-phone" style="width:16px;height:16px;"></i>
@@ -776,7 +922,8 @@
           <a href="https://github.com/trungtin-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="lucide-github" style="width:20px;height:20px;"></i>
           </a>
-          <a href="https://linkedin.com/in/trungtin-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://linkedin.com/in/trungtin-dev" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">
             <i class="lucide-linkedin" style="width:20px;height:20px;"></i>
           </a>
           <a href="mailto:trungtin@example.com" aria-label="Email">
@@ -788,7 +935,7 @@
   </main>
 
   <script>
-    (function() {
+    (function () {
       "use strict";
 
       // ===== particles =====
@@ -816,9 +963,9 @@
           role: "Software Developer Intern",
           description: "Tham gia phát triển hệ sinh thái du lịch DUDI trong thời gian thực tập tại công ty.",
           technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "REST API", "Tailwind CSS"],
-          image: "assets/projects/dudi.png",
+          image: "assets/sgd.png",
           liveUrl: "",
-          githubUrl: "https://github.com/trungtin-dev/dudi"
+          githubUrl: "https://github.com/Trungtin828465/sgd"
         },
         {
           id: 2,
@@ -827,42 +974,65 @@
           role: "Developer / Đồ án tốt nghiệp",
           description: "Ứng dụng hỗ trợ người khiếm thị nhận diện vật thể và hướng dẫn di chuyển trong nhà.",
           technologies: ["Android", "YOLO", "CameraX", "TensorFlow Lite", "Google Speech"],
-          image: "assets/projects/visually-impaired.png",
+          image: "assets/khiemthi.png",
           liveUrl: "",
-          githubUrl: "https://github.com/trungtin-dev/visually-impaired"
+          githubUrl: "https://github.com/Trungtin828465/DATN_6351071070_NguyenTrungTin"
         },
         {
           id: 3,
+          category: "Dự án công ty triho",
+          title: "Website giới thiệu công ty",
+          role: "Full-stack Developer",
+          description: "Website giới thiệu thông tin công ty và các dịch vụ của họ.",
+          technologies: ["ReactJS", "Express", "PostgreSQL"],
+          image: "assets/ldt.png",
+          liveUrl: "https://ltdpage.netlify.app",
+          githubUrl: "https://github.com/Trungtin828465/ldt"
+        },
+        {
+          id: 4,
           category: "Dự án cá nhân",
           title: "Website quản lý sức khỏe + Chatbot",
           role: "Backend / AI Developer",
           description: "Website quản lý sức khỏe tích hợp Chatbot tư vấn bằng NLP và Semantic Search.",
           technologies: ["FastAPI", "PostgreSQL", "Python", "SBERT", "NLP", "Semantic Search"],
-          image: "assets/projects/healthcare.png",
+          image: "assets/suckhoe.png",
           liveUrl: "",
-          githubUrl: "https://github.com/trungtin-dev/healthcare"
+          githubUrl: "https://github.com/Trungtin828465/health_management"
         },
         {
-          id: 4,
+          id: 5,
           category: "Dự án cá nhân",
           title: "Website học tiếng Anh",
           role: "Full-stack Developer",
           description: "Website hỗ trợ học tiếng Anh với đánh giá TOEIC và học từ vựng.",
           technologies: ["ReactJS", "C#", ".NET", "PostgreSQL"],
-          image: "assets/projects/english-learning.png",
+          image: "assets/hocav.png",
           liveUrl: "",
-          githubUrl: "https://github.com/trungtin-dev/english-learning"
+          githubUrl: "https://github.com/Trungtin828465/Dictionary-ChatboxAI"
         },
         {
-          id: 5,
+          id: 6,
           category: "Dự án cá nhân",
           title: "Website cửa hàng đồng hồ",
           role: "Full-stack Developer",
           description: "Website thương mại điện tử mô phỏng cửa hàng đồng hồ và quản lý sản phẩm.",
           technologies: ["ASP.NET Core MVC", "Entity Framework Core", "SQL Server"],
-          image: "assets/projects/watch-store.png",
+          image: "assets/dongho.png",
           liveUrl: "",
-          githubUrl: "https://github.com/trungtin-dev/watch-store"
+          githubUrl: "https://github.com/Trungtin828465/Web_WatchStore"
+        },
+        
+        {
+          id: 7,
+          category: "Dự án Mobile",
+          title: "BusMap",
+          role: "Mobile Developer",
+          description: "Ứng dụng hỗ trợ tìm kiếm tuyến xe buýt và theo dõi lộ trình di chuyển trên bản đồ.",
+          technologies: ["Flutter", "OpenStreetMap", "Mapbox", "C#"],
+          image: "assets/busmap.png",
+          liveUrl: "#",
+          githubUrl: "https://github.com/Trungtin828465/UI_Bus_Map_App"
         }
       ];
 
@@ -887,7 +1057,7 @@
           img.src = p.image;
           img.alt = p.title + ' – ảnh dự án';
           img.loading = 'lazy';
-          img.onerror = function() {
+          img.onerror = function () {
             this.style.display = 'none';
             const fallback = document.createElement('div');
             fallback.className = 'placeholder-svg';
@@ -1024,7 +1194,7 @@
 
       // ===== smooth anchor =====
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
           const targetId = this.getAttribute('href');
           if (targetId === '#') return;
           const target = document.querySelector(targetId);
@@ -1048,4 +1218,5 @@
     })();
   </script>
 </body>
+
 </html>
